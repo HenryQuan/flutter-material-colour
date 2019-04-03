@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './colour.dart';
 
 void main() => runApp(MC());
 
@@ -15,22 +16,16 @@ class MC extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: GridView.count(
           // Create a grid with 2 columns. If you change the scrollDirection to
@@ -43,9 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Item ${index + 1}',
                 style: Theme.of(context).textTheme.headline
               ),
-              onPressed: () => new AlertDialog(
-                title: Text('Hello World'),
-              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ColourPage(title: index.toString())),
+                );
+              }
             );
           }),
         ),
