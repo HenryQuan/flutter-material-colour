@@ -32,14 +32,23 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Hello World')
-          ],
+      body: GridView.count(
+          // Create a grid with 2 columns. If you change the scrollDirection to
+          // horizontal, this would produce 2 rows.
+          crossAxisCount: 2,
+          // Generate 100 Widgets that display their index in the List
+          children: List.generate(100, (index) {
+            return FlatButton(
+              child: Text(
+                'Item ${index + 1}',
+                style: Theme.of(context).textTheme.headline
+              ),
+              onPressed: () => new AlertDialog(
+                title: Text('Hello World'),
+              ),
+            );
+          }),
         ),
-      ),
     );
   }
 }
