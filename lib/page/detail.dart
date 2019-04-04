@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ColourPage extends StatelessWidget {
   ColourPage({Key key, this.title}) : super(key: key);
@@ -7,13 +7,12 @@ class ColourPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        previousPageTitle: 'Main',
-        middle: Text('Colour $title')
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
       ),
-      child: Center(
-        child: CupertinoButton(
+      body: Center(
+        child: FlatButton(
           child: Text('POP'),
           onPressed: () {
             Navigator.pop(context);

@@ -10,7 +10,7 @@ class MC extends StatelessWidget {
     return MaterialApp(
       title: 'Material Colour',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blueGrey,
       ),
       home: MyHomePage(title: 'Material Colour'),
     );
@@ -38,6 +38,8 @@ class MyHomePage extends StatelessWidget {
           return GridView.count(
             crossAxisCount: o == Orientation.portrait ? 2 : 4,
             children: List.generate(FlutterMaterialColour.length, (index) {
+              var currItem = FlutterMaterialColour.values.elementAt(index);
+              var currColour = FlutterMaterialColour.keys.elementAt(index);
               return Padding(
                 child: Material(
                   shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(16) ),
@@ -45,11 +47,11 @@ class MyHomePage extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   child: FlatButton(
                     child: null,
-                    color: hexToColor(FlutterMaterialColour.values.elementAt(index)['500']),
+                    color: hexToColor(currItem['500']),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ColourPage(title: index.toString())),
+                        MaterialPageRoute(builder: (context) => ColourPage(title: currColour)),
                       );
                     },
                   ),
