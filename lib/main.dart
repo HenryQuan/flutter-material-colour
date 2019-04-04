@@ -51,7 +51,7 @@ class MyHomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ColourPage(title: currColour)),
+                        MaterialPageRoute(builder: (context) => ColourPage(title: currColour, colour: currItem)),
                       );
                     },
                   ),
