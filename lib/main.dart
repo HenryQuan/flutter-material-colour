@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './page/detail.dart';
+import './value/colour.dart';
 
 void main() => runApp(MC());
 
@@ -21,6 +22,11 @@ class MyHomePage extends StatelessWidget {
 
   final String title;
 
+  Color hexToColor(String code) {
+    print(code);
+    return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,18 +37,24 @@ class MyHomePage extends StatelessWidget {
         builder: (c, o) {
           return GridView.count(
             crossAxisCount: o == Orientation.portrait ? 2 : 4,
-            children: List.generate(100, (index) {
-              return FlatButton(
-                child: Text(
-                  'Item ${index + 1}',
-                  style: Theme.of(context).textTheme.headline
+            children: List.generate(FlutterMaterialColour.length, (index) {
+              return Padding(
+                child: Material(
+                  shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(16) ),
+                  elevation: 4,
+                  clipBehavior: Clip.antiAlias,
+                  child: FlatButton(
+                    child: null,
+                    color: hexToColor(FlutterMaterialColour.values.elementAt(index)['500']),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ColourPage(title: index.toString())),
+                      );
+                    },
+                  ),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ColourPage(title: index.toString())),
-                  );
-                }
+                padding: EdgeInsets.only(left: 8, right: 8, top: 16, bottom: 8),
               );
             }),
           );

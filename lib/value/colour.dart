@@ -1,5 +1,5 @@
 // Data are from https://github.com/DerayGa/react-native-material-color
-const MaterialColour = {
+const FlutterMaterialColour = {
   "DELTAGREY": {
     "50": "#e4e4e4",
     "100": "#bdbdbd",
