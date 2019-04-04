@@ -13,18 +13,27 @@ class ColourPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var headerColour = hexToColor(colour['500']);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        backgroundColor: hexToColor(colour['500']),
+        backgroundColor: headerColour
       ),
       body: Center(
-        child: FlatButton(
-          child: Text('POP'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        child: ListView.builder(
+          itemCount: colour.length,
+          itemBuilder: (c, i) {
+            var currKey = colour.keys.elementAt(i);
+            return FlatButton(
+              child: Text(currKey),
+              color: hexToColor(colour.values.elementAt(i)),
+              onPressed: () {
+
+              },
+            );
+          }
+        )
       )
     );
   }
