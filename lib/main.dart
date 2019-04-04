@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './colour.dart';
+import './page/detail.dart';
 
 void main() => runApp(MC());
 
