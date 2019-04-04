@@ -1,6 +1,6 @@
 // Data are from https://github.com/DerayGa/react-native-material-color
 const FlutterMaterialColour = {
-  "RED": {
+  "Red": {
     "50": "ffebee",
     "100": "#ffcdd2",
     "200": "#ef9a9a",
@@ -16,7 +16,7 @@ const FlutterMaterialColour = {
     "A400": "#ff1744",
     "A700": "#d50000"
   },
-  "PINK": {
+  "Pink": {
     "50": "#fce4ec",
     "100": "#f8bbd0",
     "200": "#f48fb1",
@@ -32,7 +32,7 @@ const FlutterMaterialColour = {
     "A400": "#f50057",
     "A700": "#c51162"
   },
-  "PURPLE": {
+  "Purple": {
     "50": "#f3e5f5",
     "100": "#e1bee7",
     "200": "#ce93d8",
@@ -48,7 +48,7 @@ const FlutterMaterialColour = {
     "A400": "#d500f9",
     "A700": "#aa00ff"
   },
-  "DEEPPRUPLE": {
+  "Deep Purple": {
     "50": "#ede7f6",
     "100": "#d1c4e9",
     "200": "#b39ddb",
@@ -64,7 +64,7 @@ const FlutterMaterialColour = {
     "A400": "#651fff",
     "A700": "#6200ea"
   },
-  "INDIGO": {
+  "Indigo": {
     "50": "#e8eaf6",
     "100": "#c5cae9",
     "200": "#9fa8da",
@@ -80,7 +80,7 @@ const FlutterMaterialColour = {
     "A400": "#3d5afe",
     "A700": "#304ffe"
   },
-  "BLUE": {
+  "Blue": {
     "50": "#e3f2fd",
     "100": "#bbdefb",
     "200": "#90caf9",
@@ -96,7 +96,7 @@ const FlutterMaterialColour = {
     "A400": "#2979ff",
     "A700": "#2962ff"
   },
-  "LIGHTBLUE": {
+  "Light Blue": {
     "50": "#e1f5fe",
     "100": "#b3e5fc",
     "200": "#81d4fa",
@@ -112,7 +112,7 @@ const FlutterMaterialColour = {
     "A400": "#00b0ff",
     "A700": "#0091ea"
   },
-  "CYAN": {
+  "Cyan": {
     "50": "#e0f7fa",
     "100": "#b2ebf2",
     "200": "#80deea",
@@ -128,7 +128,7 @@ const FlutterMaterialColour = {
     "A400": "#00e5ff",
     "A700": "#00b8d4"
   },
-  "TEAL": {
+  "Teal": {
     "50": "#e0f2f1",
     "100": "#b2dfdb",
     "200": "#80cbc4",
@@ -144,7 +144,7 @@ const FlutterMaterialColour = {
     "A400": "#1de9b6",
     "A700": "#00bfa5"
   },
-  "GREEN": {
+  "Green": {
     "50": "#e8f5e9",
     "100": "#c8e6c9",
     "200": "#a5d6a7",
@@ -160,7 +160,7 @@ const FlutterMaterialColour = {
     "A400": "#00e676",
     "A700": "#00c853"
   },
-  "LIGHTGREEN": {
+  "Light Green": {
     "50": "#f1f8e9",
     "100": "#dcedc8",
     "200": "#c5e1a5",
@@ -176,7 +176,7 @@ const FlutterMaterialColour = {
     "A400": "#76ff03",
     "A700": "#64dd17"
   },
-  "LIME": {
+  "Lime": {
     "50": "#f9fbe7",
     "100": "#f0f4c3",
     "200": "#e6ee9c",
@@ -192,7 +192,7 @@ const FlutterMaterialColour = {
     "A400": "#c6ff00",
     "A700": "#aeea00"
   },
-  "YELLOW": {
+  "Yellow": {
     "50": "#fffde7",
     "100": "#fff9c4",
     "200": "#fff59d",
@@ -208,7 +208,7 @@ const FlutterMaterialColour = {
     "A400": "#ffea00",
     "A700": "#ffd600"
   },
-  "AMBER": {
+  "Amber": {
     "50": "#fff8e1",
     "100": "#ffecb3",
     "200": "#ffe082",
@@ -224,7 +224,7 @@ const FlutterMaterialColour = {
     "A400": "#ffc400",
     "A700": "#ffab00"
   },
-  "ORANGE": {
+  "Orange": {
     "50": "#fff3e0",
     "100": "#ffe0b2",
     "200": "#ffcc80",
@@ -240,7 +240,7 @@ const FlutterMaterialColour = {
     "A400": "#ff9100",
     "A700": "#ff6d00"
   },
-  "DEEPORANGE": {
+  "Deep Orange": {
     "50": "#fbe9e7",
     "100": "#ffccbc",
     "200": "#ffab91",
@@ -256,7 +256,7 @@ const FlutterMaterialColour = {
     "A400": "#ff3d00",
     "A700": "#dd2c00"
   },
-  "BROWN": {
+  "Brown": {
     "50": "#efebe9",
     "100": "#d7ccc8",
     "200": "#bcaaa4",
@@ -272,7 +272,7 @@ const FlutterMaterialColour = {
     "A400": "#8c6253",
     "A700": "#533a31"
   },
-  "GREY": {
+  "Grey": {
     "50": "#fafafa",
     "100": "#f5f5f5",
     "200": "#eeeeee",
@@ -288,7 +288,7 @@ const FlutterMaterialColour = {
     "A400": "#adadad",
     "A700": "#7f7f7f"
   },
-  "BLUEGREY": {
+  "Blue Grey": {
     "50": "#eceff1",
     "100": "#cfd8dc",
     "200": "#b0bec5",
