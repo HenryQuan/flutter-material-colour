@@ -27,26 +27,29 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: GridView.count(
-          // Create a grid with 2 columns. If you change the scrollDirection to
-          // horizontal, this would produce 2 rows.
-          crossAxisCount: 2,
-          // Generate 100 Widgets that display their index in the List
-          children: List.generate(100, (index) {
-            return FlatButton(
-              child: Text(
-                'Item ${index + 1}',
-                style: Theme.of(context).textTheme.headline
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ColourPage(title: index.toString())),
-                );
-              }
-            );
-          }),
-        ),
+      body: OrientationBuilder(
+        builder: (c, o) {
+          return GridView.count(
+            crossAxisCount: o == Orientation.portrait ? 2 : 4,
+            children: List.generate(100, (index) {
+              return FlatButton(
+                child: Text(
+                  'Item ${index + 1}',
+                  style: Theme.of(context).textTheme.headline
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ColourPage(title: index.toString())),
+                  );
+                }
+              );
+            }),
+          );
+        },
+      )
     );
   }
+
+  
 }

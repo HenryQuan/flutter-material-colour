@@ -13,10 +13,10 @@ import 'package:mc/main.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(MC());
 
     // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
+    expect(find.text('Material Colour'), findsOneWidget);
     expect(find.text('1'), findsNothing);
 
     // Tap the '+' icon and trigger a frame.
