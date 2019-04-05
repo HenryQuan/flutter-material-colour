@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './detail.dart';
+import './about.dart';
 import '../value/colour.dart';
 
 class HomePage extends StatelessWidget {
@@ -19,9 +20,14 @@ class HomePage extends StatelessWidget {
         title: Text(title),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.info_outline),
             tooltip: 'Increase volume by 10',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AboutPage()),
+              );
+            },
           )
         ],
       ),
