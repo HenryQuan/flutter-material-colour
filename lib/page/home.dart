@@ -35,9 +35,8 @@ class HomePage extends StatelessWidget {
         builder: (c, o) {
           return GridView.count(
             crossAxisCount: o == Orientation.portrait ? 2 : 4,
-            children: List.generate(FlutterMaterialColour.length, (index) {
-              var currItem = FlutterMaterialColour.values.elementAt(index);
-              var currColour = FlutterMaterialColour.keys.elementAt(index);
+            children: FlutterMaterialColour.keys.map((key) {
+              print(key);
               return Padding(
                 child: Material(
                   shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(16) ),
@@ -45,18 +44,18 @@ class HomePage extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   child: FlatButton(
                     child: null,
-                    color: hexToColor(currItem['500']),
+                    color: hexToColor(FlutterMaterialColour[key]['500']),
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ColourPage(title: currColour, colour: currItem)),
+                        MaterialPageRoute(builder: (context) => ColourPage(title: key, colour: FlutterMaterialColour[key])),
                       );
                     },
                   ),
                 ),
                 padding: EdgeInsets.only(left: 8, right: 8, top: 16, bottom: 8),
               );
-            }),
+            }).toList()
           );
         },
       )

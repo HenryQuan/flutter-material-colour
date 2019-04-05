@@ -1,7 +1,7 @@
 // Data are from https://github.com/DerayGa/react-native-material-color
 const FlutterMaterialColour = {
   "Red": {
-    "50": "ffebee",
+    "50": "#ffebee",
     "100": "#ffcdd2",
     "200": "#ef9a9a",
     "300": "#e57373",
