@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import '../core/ColourUtil.dart';
 
 class ColourPage extends StatelessWidget {
   ColourPage({Key key, this.title, this.colour}) : super(key: key);
 
   final String title;
   final Map<String, String> colour;
-
-  Color hexToColor(String code) {
-    print(code);
-    return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
-  }
 
   _showAlert(BuildContext context, String key) {
     showDialog(
@@ -26,21 +22,36 @@ class ColourPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var headerColour = hexToColor(colour['500']);
-
+    var bgColour = ColourUtil.getColour(colour['500']);
+    var barColour = ColourUtil.getTextColour(colour['500']);
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
-        backgroundColor: headerColour
+        title: Text(
+          title,
+          style: TextStyle(
+            color: barColour
+          ),
+        ),
+        iconTheme: IconThemeData(
+          color: barColour
+        ),
+        backgroundColor: bgColour,
+        brightness: ColourUtil.getBrightness(colour['500'])
       ),
       body: ListView.builder(
         itemCount: colour.length,
         itemBuilder: (c, i) {
           var currKey = colour.keys.elementAt(i);
+          var currColour = colour[currKey];
           return MaterialButton(
             height: 64,
-            child: Text(currKey),
-            color: hexToColor(colour[currKey]),
+            child: Text(
+              currKey,
+              style: TextStyle(
+                color: ColourUtil.getTextColour(currColour)
+              ),
+            ),
+            color: ColourUtil.getColour(currColour),
             onPressed: () => _showAlert(context, currKey)
           );
         },

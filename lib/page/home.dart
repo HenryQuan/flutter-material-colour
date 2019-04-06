@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import './detail.dart';
 import './about.dart';
 import '../value/colour.dart';
+import '../core/ColourUtil.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key key, this.title}) : super(key: key);
 
   final String title;
-
-  Color hexToColor(String code) {
-    print(code);
-    return new Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +16,16 @@ class HomePage extends StatelessWidget {
         title: Text(
           title,
           style: TextStyle(
-            color: Colors.black
+            color: Colors.black87
           ),
         ),
         backgroundColor: Colors.white,
         brightness: Brightness.light,
         actions: <Widget>[
           IconButton(
+            color: Colors.black87,
             icon: Icon(Icons.info_outline),
-            tooltip: 'Increase volume by 10',
+            tooltip: 'About Flutter Material Colour',
             onPressed: () {
               Navigator.push(
                 context,
@@ -51,7 +48,7 @@ class HomePage extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   child: FlatButton(
                     child: null,
-                    color: hexToColor(FlutterMaterialColour[key]['500']),
+                    color: ColourUtil.getColour(FlutterMaterialColour[key]['500']),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -68,6 +65,4 @@ class HomePage extends StatelessWidget {
       )
     );
   }
-
-  
 }
