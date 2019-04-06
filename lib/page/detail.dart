@@ -13,8 +13,9 @@ class ColourPage extends StatelessWidget {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: Text(key),
-          content: Text(colour[key].toUpperCase()),
+          content: FlatButton(
+
+          )
         );
       }
     );
@@ -44,15 +45,28 @@ class ColourPage extends StatelessWidget {
           var currKey = colour.keys.elementAt(i);
           var currColour = colour[currKey];
           return MaterialButton(
-            height: 64,
-            child: Text(
-              currKey,
-              style: TextStyle(
-                color: ColourUtil.getTextColour(currColour)
-              ),
+            height: 74,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  colour[currKey].toUpperCase(),
+                  style: TextStyle(
+                    color: ColourUtil.getTextColour(currColour),
+                    fontSize: 17, fontWeight: FontWeight.w700
+                  ),
+                ),
+                Text(
+                  currKey,
+                  style: TextStyle(
+                    color: ColourUtil.getTextColour(currColour),
+                    fontSize: 15
+                  ),
+                ),
+              ],
             ),
             color: ColourUtil.getColour(currColour),
-            onPressed: () => _showAlert(context, currKey)
+            onPressed: () {}
           );
         },
       )
