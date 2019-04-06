@@ -1,4 +1,4 @@
-package com.example.mc;
+package io.github.henryquan.flutter_mc;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
