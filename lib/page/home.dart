@@ -17,7 +17,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: Colors.black
+          ),
+        ),
+        backgroundColor: Colors.white,
+        brightness: Brightness.light,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.info_outline),
