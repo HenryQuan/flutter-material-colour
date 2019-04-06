@@ -13,9 +13,7 @@ class ColourPage extends StatelessWidget {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          content: FlatButton(
-
-          )
+          content: null
         );
       }
     );
