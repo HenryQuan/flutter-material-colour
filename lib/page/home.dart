@@ -1,16 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:mc/core/MaterialColour.dart';
 import './detail.dart';
 import './about.dart';
-import '../core/colour.dart';
-import '../core/ColourUtil.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key key, this.title}) : super(key: key);
 
   final String title;
+  static const ColourNames = [
+    'Red', 'Pink',
+    'Purple', 'Deep Purple',
+    'Indigo', 'Blue',
+    'Light Blue', 'Cyan',
+    'Teal', 'Green',
+    'Light Green', 'Lime',
+    'Yellow', 'Amber',
+    'Orange', 'Deep Orange',
+    'Brown', 'Grey',
+    'Blue Grey'
+  ];
 
   @override
   Widget build(BuildContext context) {
+    // Get MaterialColour list
+    var list = [];
+    ColourNames.forEach((n) => list.add(new MaterialColour(n)));
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -39,30 +54,29 @@ class HomePage extends StatelessWidget {
         builder: (c, o) {
           return GridView.count(
             crossAxisCount: o == Orientation.portrait ? 2 : 4,
-            children: FlutterMaterialColour.keys.map((key) {
-              print(key);
+            children: list.map((mc) {
               return Padding(
                 child: Material(
-                  shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(16) ),
+                  shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(16)),
                   elevation: 4,
                   clipBehavior: Clip.antiAlias,
                   child: FlatButton(
                     child: null,
-                    color: ColourUtil.getColour(FlutterMaterialColour[key]['500']),
+                    color: mc.mainColour.colour,
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ColourPage(title: key, colour: FlutterMaterialColour[key])),
+                        MaterialPageRoute(builder: (context) => ColourPage(title: mc.name, mc: mc)),
                       );
                     },
                   ),
                 ),
                 padding: EdgeInsets.only(left: 8, right: 8, top: 16, bottom: 8),
               );
-            }).toList()
+            }).toList(),
           );
         },
-      )
+      ),
     );
   }
 }

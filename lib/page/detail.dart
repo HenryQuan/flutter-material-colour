@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import '../core/ColourUtil.dart';
+import 'package:mc/core/MaterialColour.dart';
 
 class ColourPage extends StatelessWidget {
-  ColourPage({Key key, this.title, this.colour}) : super(key: key);
+  ColourPage({Key key, this.title, this.mc}) : super(key: key);
 
   final String title;
-  final Map<String, String> colour;
+  final MaterialColour mc;
+  static const scale = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700'];
 
   _showAlert(BuildContext context, String key) {
     showDialog(
@@ -21,8 +22,9 @@ class ColourPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bgColour = ColourUtil.getColour(colour['500']);
-    var barColour = ColourUtil.getTextColour(colour['500']);
+    var bgColour = mc.mainColour.colour;
+    var barColour = mc.mainColour.textColour;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -35,35 +37,36 @@ class ColourPage extends StatelessWidget {
           color: barColour
         ),
         backgroundColor: bgColour,
-        brightness: ColourUtil.getBrightness(colour['500'])
+        brightness: mc.mainColour.brightness
       ),
       body: Container(
-        color: ColourUtil.getColour(colour['A700']),
+        color: mc.mainColour.colour,
         child: ListView.builder(
-          itemCount: colour.length,
+          itemCount: mc.list.length,
           itemBuilder: (c, i) {
-            var currKey = colour.keys.elementAt(i);
-            var currColour = colour[currKey];
+            var currKey = scale[i];
+            var currColour = new HexColour(mc.list[currKey]);
             return Container(
               height: 64,
               padding: EdgeInsets.all(16),
-              color: ColourUtil.getColour(currColour),
+              color: currColour.colour,
               child: InkWell(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      colour[currKey].toUpperCase(),
+                      mc.list[currKey].toUpperCase(),
                       style: TextStyle(
-                        color: ColourUtil.getTextColour(currColour),
-                        fontSize: 17, fontWeight: FontWeight.w700
+                        color: currColour.textColour,
+                        fontSize: 17, 
+                        fontWeight: FontWeight.w700
                       ),
                     ),
                     Text(
                       currKey,
                       style: TextStyle(
-                        color: ColourUtil.getTextColour(currColour),
-                        fontSize: 15
+                        color: currColour.textColour,
+                        fontSize: 17
                       ),
                     ),
                   ],
