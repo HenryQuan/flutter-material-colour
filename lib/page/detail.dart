@@ -47,7 +47,7 @@ class ColourPage extends StatelessWidget {
             var currKey = scale[i];
             var currColour = new HexColour(mc.list[currKey]);
             return Container(
-              height: 64,
+              height: 66,
               padding: EdgeInsets.all(16),
               color: currColour.colour,
               child: InkWell(
@@ -66,7 +66,8 @@ class ColourPage extends StatelessWidget {
                       currKey,
                       style: TextStyle(
                         color: currColour.textColour,
-                        fontSize: 17
+                        fontSize: 17,
+                        fontWeight: FontWeight.w900
                       ),
                     ),
                   ],
