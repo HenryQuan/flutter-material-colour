@@ -8,7 +8,7 @@ class AboutPage extends StatelessWidget {
         title: Text('About')
       ),
       body: Center(
-        child: Text('This is AboutPage\nFlutter Material Colour v1.0')
+        child: Text('Flutter Material Colour 1.0')
       )
     );
   }

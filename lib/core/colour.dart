@@ -1,5 +1,74 @@
+
+import 'dart:math';
+import 'dart:ui';
+import 'package:flutter/material.dart';
+
+/// Manage colours like Red, Blue and get 50 - 900 
+class MaterialColour {
+  String name;
+  Map<String, String> list;
+  HexColour mainColour;
+
+  MaterialColour(String name) {
+    this.name = name;
+    this.list = ColourValues[name];
+    this.mainColour = new HexColour(this.list['500']);
+  }
+}
+
+/// Record flutter colour object and know if it is dark or light
+class HexColour {
+  Color colour;
+  Color textColour;
+  Brightness brightness;
+
+  HexColour(String hex) {
+    this.colour = getColour(hex);
+    var number = _brightness(hex);
+    this.brightness = number < 130 ? Brightness.dark : Brightness.light;
+    this.textColour = number < 130 ? Colors.white : Colors.black87;
+  }
+
+  /// Get flutter color object
+  Color getColour(String hex) {
+    return new Color(int.parse(hex.substring(1, 7), radix: 16) + 0xFF000000);
+  }
+
+  /// Calculate its brightness
+  double _brightness(String hex) {
+    var R = int.parse(hex.substring(1, 3), radix: 16);
+    var G = int.parse(hex.substring(3, 5), radix: 16);
+    var B = int.parse(hex.substring(5, 7), radix: 16);
+    // From http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
+    return sqrt(R * R * 0.241 + G * G * 0.691 + B * B * 0.068);
+  }
+}
+
 // Data are from https://github.com/DerayGa/react-native-material-color
-const FlutterMaterialColour = {
+
+const ColourNames = [
+  "Red",
+  "Pink",
+  "Purple",
+  "Deep Purple",
+  "Indigo",
+  "Blue",
+  "Light Blue",
+  "Cyan",
+  "Teal",
+  "Green",
+  "Light Green",
+  "Lime",
+  "Yellow",
+  "Amber",
+  "Orange",
+  "Deep Orange",
+  "Brown",
+  "Grey",
+  "Blue Grey"
+];
+
+const ColourValues = {
   "Red": {
     "50": "#ffebee",
     "100": "#ffcdd2",

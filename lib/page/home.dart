@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './detail.dart';
 import './about.dart';
-import '../value/colour.dart';
+import '../core/colour.dart';
 import '../core/ColourUtil.dart';
 
 class HomePage extends StatelessWidget {
@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
           IconButton(
             color: Colors.black87,
             icon: Icon(Icons.info_outline),
-            tooltip: 'About Flutter Material Colour',
+            tooltip: 'About Material Colour',
             onPressed: () {
               Navigator.push(
                 context,
