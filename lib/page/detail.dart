@@ -37,36 +37,41 @@ class ColourPage extends StatelessWidget {
         backgroundColor: bgColour,
         brightness: ColourUtil.getBrightness(colour['500'])
       ),
-      body: ListView.builder(
-        itemCount: colour.length,
-        itemBuilder: (c, i) {
-          var currKey = colour.keys.elementAt(i);
-          var currColour = colour[currKey];
-          return MaterialButton(
-            height: 74,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  colour[currKey].toUpperCase(),
-                  style: TextStyle(
-                    color: ColourUtil.getTextColour(currColour),
-                    fontSize: 17, fontWeight: FontWeight.w700
-                  ),
+      body: Container(
+        color: ColourUtil.getColour(colour['A700']),
+        child: ListView.builder(
+          itemCount: colour.length,
+          itemBuilder: (c, i) {
+            var currKey = colour.keys.elementAt(i);
+            var currColour = colour[currKey];
+            return Container(
+              height: 64,
+              padding: EdgeInsets.all(16),
+              color: ColourUtil.getColour(currColour),
+              child: InkWell(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      colour[currKey].toUpperCase(),
+                      style: TextStyle(
+                        color: ColourUtil.getTextColour(currColour),
+                        fontSize: 17, fontWeight: FontWeight.w700
+                      ),
+                    ),
+                    Text(
+                      currKey,
+                      style: TextStyle(
+                        color: ColourUtil.getTextColour(currColour),
+                        fontSize: 15
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  currKey,
-                  style: TextStyle(
-                    color: ColourUtil.getTextColour(currColour),
-                    fontSize: 15
-                  ),
-                ),
-              ],
-            ),
-            color: ColourUtil.getColour(currColour),
-            onPressed: () {}
-          );
-        },
+              )
+            );
+          },
+        ),
       )
     );
   }
