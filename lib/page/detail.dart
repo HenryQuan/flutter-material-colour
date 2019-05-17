@@ -14,7 +14,7 @@ class ColourPage extends StatelessWidget {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          content: null
+          title: Text('Hello'),
         );
       }
     );
@@ -46,37 +46,40 @@ class ColourPage extends StatelessWidget {
           itemBuilder: (c, i) {
             var currKey = scale[i];
             var currColour = new HexColour(mc.list[currKey]);
-            return Container(
-              height: 66,
-              padding: EdgeInsets.all(16),
+            return Material(
               color: currColour.colour,
               child: InkWell(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      mc.list[currKey].toUpperCase(),
-                      style: TextStyle(
-                        color: currColour.textColour,
-                        fontSize: 17, 
-                        fontWeight: FontWeight.w700
+                onTap: () => _showAlert(c, '123'),
+                child: Container(
+                  padding: EdgeInsets.all(16),
+                  height: 66,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        mc.list[currKey].toUpperCase(),
+                        style: TextStyle(
+                          color: currColour.textColour,
+                          fontSize: 17, 
+                          fontWeight: FontWeight.w700
+                        ),
                       ),
-                    ),
-                    Text(
-                      currKey,
-                      style: TextStyle(
-                        color: currColour.textColour,
-                        fontSize: 17,
-                        fontWeight: FontWeight.w900
+                      Text(
+                        currKey,
+                        style: TextStyle(
+                          color: currColour.textColour,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              )
+              ),
             );
           },
         ),
-      )
+      ),
     );
   }
 }
