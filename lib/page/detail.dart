@@ -14,7 +14,32 @@ class ColourPage extends StatelessWidget {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: Text('Hello'),
+          contentPadding: EdgeInsets.all(0),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                title: Text('Hello'),
+                onTap: () {},
+              ),
+              ListTile(
+                title: Text('Hello'),
+                onTap: () {},
+              ),
+              ListTile(
+                title: Text('Hello'),
+                onTap: () {},
+              ),
+              ListTile(
+                title: Text('Hello'),
+                onTap: () {},
+              ),
+              ListTile(
+                title: Text('Hello'),
+                onTap: () {},
+              ),
+            ],
+          ),
         );
       }
     );
