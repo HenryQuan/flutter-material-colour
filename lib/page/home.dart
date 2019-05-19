@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:mc/core/MaterialColour.dart';
 import './detail.dart';
@@ -27,8 +29,11 @@ class HomePage extends StatelessWidget {
     ColourNames.forEach((n) => list.add(new MaterialColour(n)));
 
     return Scaffold(
-      body: OrientationBuilder(
-        builder: (c, o) {
+      body: LayoutBuilder(
+        builder: (c, constraint) {
+          // At least 2 items, at most 7 items
+          var itemNum = max(2, min((constraint.maxWidth / 200).floor(), 7));
+
           return CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
@@ -59,7 +64,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
               SliverGrid.count(
-                crossAxisCount: o == Orientation.portrait ? 2 : 4,
+                crossAxisCount: itemNum,
                 children: list.map((mc) {
                   return Padding(
                     child: Material(
