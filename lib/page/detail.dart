@@ -11,7 +11,7 @@ class ColourPage extends StatelessWidget {
 
   /// Show a snackbar when any colour string is pressed
   _showSnack(BuildContext c, String value) {
-    final snackBar = SnackBar(content: Text('$value copied'), duration: Duration(milliseconds: 500));
+    final snackBar = SnackBar(content: Text('$value copied'), duration: Duration(milliseconds: 700));
     Scaffold.of(c).showSnackBar(snackBar);
   }
 

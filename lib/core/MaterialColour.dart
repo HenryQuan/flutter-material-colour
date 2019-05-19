@@ -21,8 +21,11 @@ class HexColour {
   Color colour;
   Color textColour;
   Brightness brightness;
+
   String rgb;
   String hex;
+  String hsl;
+  String hsv;
 
   HexColour(String hex) {
     this.hex = hex.toUpperCase();
@@ -40,19 +43,29 @@ class HexColour {
 
   // format hex to rgb(1,2,3)
   String _rgb(String hex) {
-    var R = int.parse(hex.substring(1, 3), radix: 16);
-    var G = int.parse(hex.substring(3, 5), radix: 16);
-    var B = int.parse(hex.substring(5, 7), radix: 16);
-    return 'RGB($R, $G, $B)';
+    var rgb = _rgbString(hex);
+    int r = rgb[0];
+    int g = rgb[1];
+    int b = rgb[2];
+    return 'RGB($r, $g, $b)';
   }
 
   /// Calculate its brightness
   double _brightness(String hex) {
+    var rgb = _rgbString(hex);
+    int r = rgb[0];
+    int g = rgb[1];
+    int b = rgb[2];
+    // From http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
+    return sqrt(r * r * 0.241 + g * g * 0.691 + b * b * 0.068);
+  }
+
+  /// 0 -> R, 1 -> G, 2 -> B
+  List<int> _rgbString(String hex) {
     var R = int.parse(hex.substring(1, 3), radix: 16);
     var G = int.parse(hex.substring(3, 5), radix: 16);
     var B = int.parse(hex.substring(5, 7), radix: 16);
-    // From http://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx
-    return sqrt(R * R * 0.241 + G * G * 0.691 + B * B * 0.068);
+    return [R, G, B];
   }
 }
 
