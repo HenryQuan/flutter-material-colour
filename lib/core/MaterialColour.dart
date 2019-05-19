@@ -21,17 +21,29 @@ class HexColour {
   Color colour;
   Color textColour;
   Brightness brightness;
+  String rgb;
+  String hex;
 
   HexColour(String hex) {
+    this.hex = hex;
     this.colour = getColour(hex);
     var number = _brightness(hex);
     this.brightness = number < 130 ? Brightness.dark : Brightness.light;
     this.textColour = number < 130 ? Colors.white : Colors.black87;
+    this.rgb = _rgb(hex)
   }
 
   /// Get flutter color object
   Color getColour(String hex) {
     return new Color(int.parse(hex.substring(1, 7), radix: 16) + 0xFF000000);
+  }
+
+  // format hex to rgb(1,2,3)
+  String _rgb(String hex) {
+    var R = int.parse(hex.substring(1, 3), radix: 16);
+    var G = int.parse(hex.substring(3, 5), radix: 16);
+    var B = int.parse(hex.substring(5, 7), radix: 16);
+    return 'rgb($R, $G, $B)';
   }
 
   /// Calculate its brightness

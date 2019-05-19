@@ -8,35 +8,30 @@ class ColourPage extends StatelessWidget {
   final MaterialColour mc;
   static const scale = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700'];
 
-  _showAlert(BuildContext context, String key) {
+  _showAlert(BuildContext context, HexColour colour) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         // return object of type Dialog
+        final snackBar = SnackBar(content: Text('Copied'));
         return AlertDialog(
           contentPadding: EdgeInsets.all(0),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
-                title: Text('Hello'),
-                onTap: () {},
+                title: Text(colour.hex.toUpperCase()),
+                onTap: () {
+                  Navigator.pop(context);
+                  Scaffold.of(context).showSnackBar(snackBar);
+                },
               ),
               ListTile(
-                title: Text('Hello'),
-                onTap: () {},
-              ),
-              ListTile(
-                title: Text('Hello'),
-                onTap: () {},
-              ),
-              ListTile(
-                title: Text('Hello'),
-                onTap: () {},
-              ),
-              ListTile(
-                title: Text('Hello'),
-                onTap: () {},
+                title: Text(colour.rgb),
+                onTap: () {
+                  Navigator.pop(context);
+                  Scaffold.of(context).showSnackBar(snackBar);
+                },
               ),
             ],
           ),
@@ -74,7 +69,7 @@ class ColourPage extends StatelessWidget {
             return Material(
               color: currColour.colour,
               child: InkWell(
-                onTap: () => _showAlert(c, '123'),
+                onTap: () => _showAlert(c, currColour),
                 child: Container(
                   padding: EdgeInsets.all(16),
                   height: 66,
