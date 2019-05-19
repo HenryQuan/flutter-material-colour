@@ -30,7 +30,7 @@ class HexColour {
     var number = _brightness(hex);
     this.brightness = number < 130 ? Brightness.dark : Brightness.light;
     this.textColour = number < 130 ? Colors.white : Colors.black87;
-    this.rgb = _rgb(hex)
+    this.rgb = _rgb(hex);
   }
 
   /// Get flutter color object

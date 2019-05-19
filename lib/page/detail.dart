@@ -8,12 +8,12 @@ class ColourPage extends StatelessWidget {
   final MaterialColour mc;
   static const scale = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700'];
 
-  _showAlert(BuildContext context, HexColour colour) {
+  _showAlert(BuildContext c, HexColour colour) {
     showDialog(
-      context: context,
+      context: c,
       builder: (BuildContext context) {
         // return object of type Dialog
-        final snackBar = SnackBar(content: Text('Copied'));
+        final snackBar = SnackBar(content: Text('Copied'), duration: Duration(seconds: 1));
         return AlertDialog(
           contentPadding: EdgeInsets.all(0),
           content: Column(
@@ -22,15 +22,15 @@ class ColourPage extends StatelessWidget {
               ListTile(
                 title: Text(colour.hex.toUpperCase()),
                 onTap: () {
-                  Navigator.pop(context);
-                  Scaffold.of(context).showSnackBar(snackBar);
+                  Navigator.pop(c);
+                  Scaffold.of(c).showSnackBar(snackBar);
                 },
               ),
               ListTile(
                 title: Text(colour.rgb),
                 onTap: () {
-                  Navigator.pop(context);
-                  Scaffold.of(context).showSnackBar(snackBar);
+                  Navigator.pop(c);
+                  Scaffold.of(c).showSnackBar(snackBar);
                 },
               ),
             ],
