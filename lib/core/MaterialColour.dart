@@ -25,7 +25,7 @@ class HexColour {
   String hex;
 
   HexColour(String hex) {
-    this.hex = hex;
+    this.hex = hex.toUpperCase();
     this.colour = getColour(hex);
     var number = _brightness(hex);
     this.brightness = number < 130 ? Brightness.dark : Brightness.light;
@@ -43,7 +43,7 @@ class HexColour {
     var R = int.parse(hex.substring(1, 3), radix: 16);
     var G = int.parse(hex.substring(3, 5), radix: 16);
     var B = int.parse(hex.substring(5, 7), radix: 16);
-    return 'rgb($R, $G, $B)';
+    return 'RGB($R, $G, $B)';
   }
 
   /// Calculate its brightness
