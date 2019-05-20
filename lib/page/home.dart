@@ -31,6 +31,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        leading: SizedBox(
+          width: 64,
+          height: 64,
+          child: Container(
+            color: Colors.white,
+          ),
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.info_outline),
