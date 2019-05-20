@@ -30,17 +30,9 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          title,
-          style: TextStyle(
-            color: Colors.black87
-          ),
-        ),
-        backgroundColor: Colors.white,
-        brightness: Brightness.light,
+        title: Text(title),
         actions: <Widget>[
           IconButton(
-            color: Colors.black87,
             icon: Icon(Icons.info_outline),
             tooltip: 'About Material Colour',
             onPressed: () {

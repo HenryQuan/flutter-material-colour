@@ -9,7 +9,7 @@ class MC extends StatelessWidget {
     return MaterialApp(
       title: 'Material Colour',
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.indigo
       ),
       home: HomePage(title: 'Material Colour'),
     );
