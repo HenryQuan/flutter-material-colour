@@ -6,11 +6,10 @@ import 'package:flutter/material.dart';
 /// Manage colours like Red, Blue and get 50 - 900 
 class MaterialColour {
   String name;
-  Map<String, String> list;
+  var list;
   HexColour mainColour;
 
-  MaterialColour(String name) {
-    this.name = name;
+  MaterialColour(this.name) {
     this.list = ColourValues[name];
     this.mainColour = new HexColour(this.list['500']);
   }
@@ -85,7 +84,8 @@ const ColourValues = {
     'A100': '#ff8a80',
     'A200': '#ff5252',
     'A400': '#ff1744',
-    'A700': '#d50000'
+    'A700': '#d50000',
+    'Swatch': Colors.red
   },
   'Pink': {
     '50': '#fce4ec',
@@ -101,7 +101,8 @@ const ColourValues = {
     'A100': '#ff80ab',
     'A200': '#ff4081',
     'A400': '#f50057',
-    'A700': '#c51162'
+    'A700': '#c51162',
+    'Swatch': Colors.pink
   },
   'Purple': {
     '50': '#f3e5f5',
@@ -117,7 +118,8 @@ const ColourValues = {
     'A100': '#ea80fc',
     'A200': '#e040fb',
     'A400': '#d500f9',
-    'A700': '#aa00ff'
+    'A700': '#aa00ff',
+    'Swatch': Colors.purple
   },
   'Deep Purple': {
     '50': '#ede7f6',
@@ -133,7 +135,8 @@ const ColourValues = {
     'A100': '#b388ff',
     'A200': '#7c4dff',
     'A400': '#651fff',
-    'A700': '#6200ea'
+    'A700': '#6200ea',
+    'Swatch': Colors.deepPurple
   },
   'Indigo': {
     '50': '#e8eaf6',
@@ -149,7 +152,8 @@ const ColourValues = {
     'A100': '#8c9eff',
     'A200': '#536dfe',
     'A400': '#3d5afe',
-    'A700': '#304ffe'
+    'A700': '#304ffe',
+    'Swatch': Colors.indigo
   },
   'Blue': {
     '50': '#e3f2fd',
@@ -165,7 +169,8 @@ const ColourValues = {
     'A100': '#82b1ff',
     'A200': '#448aff',
     'A400': '#2979ff',
-    'A700': '#2962ff'
+    'A700': '#2962ff',
+    'Swatch': Colors.blue
   },
   'Light Blue': {
     '50': '#e1f5fe',
@@ -181,7 +186,8 @@ const ColourValues = {
     'A100': '#80d8ff',
     'A200': '#40c4ff',
     'A400': '#00b0ff',
-    'A700': '#0091ea'
+    'A700': '#0091ea',
+    'Swatch': Colors.lightBlue
   },
   'Cyan': {
     '50': '#e0f7fa',
@@ -197,7 +203,8 @@ const ColourValues = {
     'A100': '#84ffff',
     'A200': '#18ffff',
     'A400': '#00e5ff',
-    'A700': '#00b8d4'
+    'A700': '#00b8d4',
+    'Swatch': Colors.cyan
   },
   'Teal': {
     '50': '#e0f2f1',
@@ -213,7 +220,8 @@ const ColourValues = {
     'A100': '#a7ffeb',
     'A200': '#64ffda',
     'A400': '#1de9b6',
-    'A700': '#00bfa5'
+    'A700': '#00bfa5',
+    'Swatch': Colors.teal
   },
   'Green': {
     '50': '#e8f5e9',
@@ -229,7 +237,8 @@ const ColourValues = {
     'A100': '#b9f6ca',
     'A200': '#69f0ae',
     'A400': '#00e676',
-    'A700': '#00c853'
+    'A700': '#00c853',
+    'Swatch': Colors.green
   },
   'Light Green': {
     '50': '#f1f8e9',
@@ -245,7 +254,8 @@ const ColourValues = {
     'A100': '#ccff90',
     'A200': '#b2ff59',
     'A400': '#76ff03',
-    'A700': '#64dd17'
+    'A700': '#64dd17',
+    'Swatch': Colors.lightGreen
   },
   'Lime': {
     '50': '#f9fbe7',
@@ -261,7 +271,8 @@ const ColourValues = {
     'A100': '#f4ff81',
     'A200': '#eeff41',
     'A400': '#c6ff00',
-    'A700': '#aeea00'
+    'A700': '#aeea00',
+    'Swatch': Colors.lime
   },
   'Yellow': {
     '50': '#fffde7',
@@ -277,7 +288,8 @@ const ColourValues = {
     'A100': '#ffff8d',
     'A200': '#ffff00',
     'A400': '#ffea00',
-    'A700': '#ffd600'
+    'A700': '#ffd600',
+    'Swatch': Colors.yellow
   },
   'Amber': {
     '50': '#fff8e1',
@@ -293,7 +305,8 @@ const ColourValues = {
     'A100': '#ffe57f',
     'A200': '#ffd740',
     'A400': '#ffc400',
-    'A700': '#ffab00'
+    'A700': '#ffab00',
+    'Swatch': Colors.amber
   },
   'Orange': {
     '50': '#fff3e0',
@@ -309,7 +322,8 @@ const ColourValues = {
     'A100': '#ffd180',
     'A200': '#ffab40',
     'A400': '#ff9100',
-    'A700': '#ff6d00'
+    'A700': '#ff6d00',
+    'Swatch': Colors.orange
   },
   'Deep Orange': {
     '50': '#fbe9e7',
@@ -325,7 +339,8 @@ const ColourValues = {
     'A100': '#ff9e80',
     'A200': '#ff6e40',
     'A400': '#ff3d00',
-    'A700': '#dd2c00'
+    'A700': '#dd2c00',
+    'Swatch': Colors.deepOrange
   },
   'Brown': {
     '50': '#efebe9',
@@ -341,7 +356,8 @@ const ColourValues = {
     'A100': '#ece2df',
     'A200': '#cfb7af',
     'A400': '#8c6253',
-    'A700': '#533a31'
+    'A700': '#533a31',
+    'Swatch': Colors.brown
   },
   'Grey': {
     '50': '#fafafa',
@@ -357,7 +373,8 @@ const ColourValues = {
     'A100': '#ffffff',
     'A200': '#fcfcfc',
     'A400': '#adadad',
-    'A700': '#7f7f7f'
+    'A700': '#7f7f7f',
+    'Swatch': Colors.grey
   },
   'Blue Grey': {
     '50': '#eceff1',
@@ -373,6 +390,7 @@ const ColourValues = {
     'A100': '#f9fafb',
     'A200': '#ccd7dc',
     'A400': '#6e8d9b',
-    'A700': '#475c67'
+    'A700': '#475c67',
+    'Swatch': Colors.blueGrey
   }
 };

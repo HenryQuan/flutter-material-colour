@@ -57,7 +57,6 @@ class HomePage extends StatelessWidget {
           var itemNum = max(2, min((constraint.maxWidth / 200).floor(), 7));
 
           return Container(
-            padding: EdgeInsets.only(left: 8, right: 8),
             child: GridView.count(
               crossAxisCount: itemNum,
               children: list.map((mc) {

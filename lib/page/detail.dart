@@ -52,6 +52,7 @@ class ColourPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(mc.list);
     var bgColour = mc.mainColour.colour;
     var cbgColour = new HexColour(mc.list['A700']);
     var barColour = mc.mainColour.textColour;
@@ -73,7 +74,7 @@ class ColourPage extends StatelessWidget {
       body: Container(
         color: cbgColour.colour,
         child: ListView.builder(
-          itemCount: mc.list.length,
+          itemCount: scale.length,
           itemBuilder: (c, i) {
             var currKey = scale[i];
             var currColour = new HexColour(mc.list[currKey]);
