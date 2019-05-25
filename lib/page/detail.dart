@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mc/core/MaterialColour.dart';
+import 'package:mc/page/colour.dart';
 
-class ColourPage extends StatelessWidget {
-  ColourPage({Key key, this.title, this.mc}) : super(key: key);
+class DetailPage extends StatelessWidget {
+  DetailPage({Key key, this.title, this.mc}) : super(key: key);
 
   final String title;
   final MaterialColour mc;
@@ -65,6 +66,19 @@ class ColourPage extends StatelessWidget {
             color: barColour
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.content_copy),
+            onPressed: () {
+              String all = '';
+              scale.forEach((s) {
+                all += '$s - ${mc.list[s].toUpperCase()}\n';
+              });
+              Clipboard.setData(new ClipboardData(text: all));
+            },
+            tooltip: 'Copy all colours',
+          )
+        ],
         iconTheme: IconThemeData(
           color: barColour
         ),
@@ -82,6 +96,12 @@ class ColourPage extends StatelessWidget {
               color: currColour.colour,
               child: InkWell(
                 onTap: () => _showAlert(c, currColour),
+                onLongPress: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ColourPage(colour: currColour.colour, tag: scale[i])),
+                  );
+                },
                 child: Container(
                   padding: EdgeInsets.all(16),
                   height: 66,
