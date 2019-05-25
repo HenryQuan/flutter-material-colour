@@ -72,7 +72,7 @@ class DetailPage extends StatelessWidget {
             onPressed: () {
               String all = '';
               scale.forEach((s) {
-                all += '$s - ${mc.list[s].toUpperCase()}\n';
+                all += '${mc.list[s].toUpperCase()} - $s\n';
               });
               Clipboard.setData(new ClipboardData(text: all));
             },
