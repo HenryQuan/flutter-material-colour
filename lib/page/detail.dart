@@ -53,7 +53,6 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(mc.list);
     var bgColour = mc.mainColour.colour;
     var cbgColour = new HexColour(mc.list['A700']);
     var barColour = mc.mainColour.textColour;
