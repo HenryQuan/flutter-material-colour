@@ -11,8 +11,10 @@ class MaterialColour {
 
   MaterialColour(this.name) {
     this.list = ColourValues[name];
-    this.mainColour = new HexColour(this.list['500']);
+    this.mainColour = HexColour(this.list['500']);
   }
+
+  getSwatch() => this.list['Swatch'];
 }
 
 /// Record flutter colour object and know if it is dark or light
@@ -37,7 +39,7 @@ class HexColour {
 
   /// Get flutter color object
   Color getColour(String hex) {
-    return new Color(int.parse(hex.substring(1, 7), radix: 16) + 0xFF000000);
+    return Color(int.parse(hex.substring(1, 7), radix: 16) + 0xFF000000);
   }
 
   // format hex to rgb(1,2,3)

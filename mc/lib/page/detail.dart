@@ -29,8 +29,8 @@ class DetailPage extends StatelessWidget {
               ListTile(
                 title: Text(colour.hex),
                 onTap: () {
-                  var value = colour.hex;
-                  Clipboard.setData(new ClipboardData(text: value));
+                  final value = colour.hex;
+                  Clipboard.setData(ClipboardData(text: value));
                   Navigator.pop(c);
                   _showSnack(c, value);
                 },
@@ -38,8 +38,8 @@ class DetailPage extends StatelessWidget {
               ListTile(
                 title: Text(colour.rgb),
                 onTap: () {
-                  var value = colour.rgb;
-                  Clipboard.setData(new ClipboardData(text: value));
+                  final value = colour.rgb;
+                  Clipboard.setData(ClipboardData(text: value));
                   Navigator.pop(c);
                   _showSnack(c, value);
                 },
@@ -53,18 +53,11 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bgColour = mc.mainColour.colour;
-    var cbgColour = new HexColour(mc.list['A700']);
-    var barColour = mc.mainColour.textColour;
+    final cbgColour = HexColour(mc.list['A700']);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          title,
-          style: TextStyle(
-            color: barColour
-          ),
-        ),
+        title: Text(title,),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.content_copy),
@@ -73,24 +66,19 @@ class DetailPage extends StatelessWidget {
               scale.forEach((s) {
                 all += '${mc.list[s].toUpperCase()} - $s\n';
               });
-              Clipboard.setData(new ClipboardData(text: all));
+              Clipboard.setData(ClipboardData(text: all));
             },
             tooltip: 'Copy all colours',
           )
         ],
-        iconTheme: IconThemeData(
-          color: barColour
-        ),
-        backgroundColor: bgColour,
-        brightness: mc.mainColour.brightness
       ),
       body: Container(
         color: cbgColour.colour,
         child: ListView.builder(
           itemCount: scale.length,
           itemBuilder: (c, i) {
-            var currKey = scale[i];
-            var currColour = new HexColour(mc.list[currKey]);
+            final currKey = scale[i];
+            final currColour = HexColour(mc.list[currKey]);
             return Material(
               color: currColour.colour,
               child: InkWell(

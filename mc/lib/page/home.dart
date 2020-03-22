@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:mc/core/MaterialColour.dart';
+import 'package:provider/provider.dart';
+import '../core/ThemeChanger.dart';
 import './detail.dart';
 import './about.dart';
 
@@ -25,19 +27,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get MaterialColour list
-    var list = [];
-    ColourNames.forEach((n) => list.add(new MaterialColour(n)));
+    List<MaterialColour> list = [];
+    ColourNames.forEach((n) => list.add(MaterialColour(n)));
+    final themeChanger = Provider.of<ThemeChanger>(context);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        leading: SizedBox(
-          width: 64,
-          height: 64,
-          child: Container(
-            color: Colors.white,
-          ),
-        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.info_outline),
@@ -70,6 +66,8 @@ class HomePage extends StatelessWidget {
                       child: null,
                       color: mc.mainColour.colour,
                       onPressed: () {
+                        // Update theme here
+                        themeChanger.setTheme(mc.getSwatch());
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => DetailPage(title: mc.name, mc: mc)),
